@@ -1,0 +1,17 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0d2780b1_002Defcb_002D4f2c_002D95fb_002Db6628bffec7c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Can_Insert #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C5196B47-4D1C-4DB8-98D5-2944851B5088::.NETCoreApp,Version=v3.1::Tests.Splay_Tests.Can_Search&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C5196B47-4D1C-4DB8-98D5-2944851B5088::.NETCoreApp,Version=v3.1::Tests.Splay_Tests.CanNot_Search_UnExisting_Value&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3ac60614_002Dc62c_002D4452_002Db0d7_002Dd583f11a3e35/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Can_Insert #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C5196B47-4D1C-4DB8-98D5-2944851B5088::.NETCoreApp,Version=v3.1::Tests.Splay_Tests.Can_Insert&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8732a75f_002Dddce_002D4210_002Daa57_002D7896f53624bf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Can_Insert" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C5196B47-4D1C-4DB8-98D5-2944851B5088::.NETCoreApp,Version=v3.1::Tests.Splay_Tests.Can_Insert&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
