@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.SlayAndRandomSearchTrees", "Otus.SlayAndRandomSearchTrees\Otus.SlayAndRandomSearchTrees.csproj", "{B726D211-6706-482C-8068-29E546327739}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B726D211-6706-482C-8068-29E546327739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B726D211-6706-482C-8068-29E546327739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B726D211-6706-482C-8068-29E546327739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B726D211-6706-482C-8068-29E546327739}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F28918B7-35FD-43AB-8430-9D9F00A19B28}
+	EndGlobalSection
+EndGlobal
