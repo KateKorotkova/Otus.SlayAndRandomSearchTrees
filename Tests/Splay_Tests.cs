@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using Otus.SlayAndRandomSearchTrees.Logic;
+using Otus.SlayAndRandomSearchTrees.Logic.Splay;
 
 namespace Tests
 {

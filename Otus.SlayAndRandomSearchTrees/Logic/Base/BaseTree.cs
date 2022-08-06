@@ -1,24 +1,103 @@
 ﻿namespace Otus.SlayAndRandomSearchTrees.Logic.Base
 {
-    public abstract class BaseTree
+    public abstract class BaseTree<T> where T : BaseNode<T>, new()
     {
-        public Node Root { get; protected set; }
+        public T Root { get; protected set; }
 
-
-        public virtual Node Insert(int value)
-        {
-            if (Root == null)
-            {
-                Root = new Node { Value = value};
-                return Root;
-            }
-
-            return AddNode(Root, value);
-        }
 
         #region Support Methods
 
-        protected void ReplaceNodeInParent(Node nodeToRemove, Node node)
+        protected T AddNode(T currentRoot, int value)
+        {
+            if (value < currentRoot.Value)
+            {
+                if (currentRoot.LeftChild == null)
+                {
+                    currentRoot.LeftChild = new T
+                    {
+                        Value = value,
+                        Parent =  currentRoot
+                    };
+
+                    return currentRoot.LeftChild;
+                }
+
+                return AddNode(currentRoot.LeftChild, value);
+            }
+            else
+            {
+                if (currentRoot.RightChild == null)
+                {
+                    currentRoot.RightChild = new T
+                    {
+                        Value = value,
+                        Parent = currentRoot
+                    };
+
+                    return currentRoot.RightChild;
+                }
+
+                return AddNode(currentRoot.RightChild, value);
+            }
+        }
+
+        protected T DoSmallLeftRotation(T rootToRotate)
+        {
+            var rightChildOfRotatedRoot = rootToRotate.RightChild;
+            rootToRotate.RightChild = rightChildOfRotatedRoot.LeftChild;
+
+            if (rightChildOfRotatedRoot.LeftChild != null)
+            {
+                rightChildOfRotatedRoot.LeftChild.Parent = rootToRotate;
+            }
+
+            rightChildOfRotatedRoot.Parent = rootToRotate.Parent;
+            if (rootToRotate.Parent == null)
+            {
+                Root = rightChildOfRotatedRoot;
+            }
+            else
+            {
+                ReplaceNodeInParent(rootToRotate, rightChildOfRotatedRoot);
+            }
+
+            rightChildOfRotatedRoot.LeftChild = rootToRotate;
+            rootToRotate.Parent = rightChildOfRotatedRoot;
+
+            AfterSmallLeftRotation(rightChildOfRotatedRoot);
+
+            return rightChildOfRotatedRoot;
+        }
+
+        protected T DoSmallRightRotation(T rootToRotate)
+        {
+            var leftChildOfRotatedRoot = rootToRotate.LeftChild;
+            rootToRotate.LeftChild = leftChildOfRotatedRoot.RightChild;
+
+            if (leftChildOfRotatedRoot.RightChild != null)
+            {
+                leftChildOfRotatedRoot.RightChild.Parent = rootToRotate;
+            }
+
+            leftChildOfRotatedRoot.Parent = rootToRotate.Parent;
+            if (rootToRotate.Parent == null)
+            {
+                Root = leftChildOfRotatedRoot;
+            }
+            else
+            {
+                ReplaceNodeInParent(rootToRotate, leftChildOfRotatedRoot);
+            }
+
+            leftChildOfRotatedRoot.RightChild = rootToRotate;
+            rootToRotate.Parent = leftChildOfRotatedRoot;
+
+            AfterSmallRightRotation(leftChildOfRotatedRoot);
+
+            return leftChildOfRotatedRoot;
+        }
+
+        private void ReplaceNodeInParent(T nodeToRemove, T node)
         {
             var parent = nodeToRemove.Parent;
             if (parent == null)
@@ -34,38 +113,14 @@
             }
         }
 
-        protected Node AddNode(Node currentRoot, int value)
+        protected virtual void AfterSmallLeftRotation(T rightChildOfRotatedRoot)
         {
-            if (value < currentRoot.Value)
-            {
-                if (currentRoot.LeftChild == null)
-                {
-                    currentRoot.LeftChild = new Node
-                    {
-                        Value = value,
-                        Parent =  currentRoot
-                    };
 
-                    return currentRoot.LeftChild;
-                }
+        }
 
-                return AddNode(currentRoot.LeftChild, value);
-            }
-            else
-            {
-                if (currentRoot.RightChild == null)
-                {
-                    currentRoot.RightChild = new Node
-                    {
-                        Value = value,
-                        Parent = currentRoot
-                    };
+        protected virtual void AfterSmallRightRotation(T leftChildOfRotatedRoot)
+        {
 
-                    return currentRoot.RightChild;
-                }
-
-                return AddNode(currentRoot.RightChild, value);
-            }
         }
 
         #endregion

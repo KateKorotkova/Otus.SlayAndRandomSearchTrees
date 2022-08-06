@@ -1,18 +1,29 @@
 ﻿using Otus.SlayAndRandomSearchTrees.Logic.Base;
 
-namespace Otus.SlayAndRandomSearchTrees.Logic
+namespace Otus.SlayAndRandomSearchTrees.Logic.Splay
 {
-    public class SplayTree : BaseTree
+    public class SplayTree : BaseTree<SplayNode>
     {
-        public Node GetNode(int value)
+        public SplayNode GetNode(int value)
         {
             return GetNode(Root, value);
         }
-        
+
+        public SplayNode Insert(int value)
+        {
+            if (Root == null)
+            {
+                Root = new SplayNode(value);
+                return Root;
+            }
+
+            return AddNode(Root, value);
+        }
+
 
         #region Support methods
 
-        public Node GetNode(Node currentNode, int value)
+        public SplayNode GetNode(SplayNode currentNode, int value)
         {
             if (currentNode == null)
                 return null;
@@ -30,7 +41,7 @@ namespace Otus.SlayAndRandomSearchTrees.Logic
             return GetNode(nextNode, value);
         }
 
-        public void LiftNodeToTheRoot(Node currentNode)
+        public void LiftNodeToTheRoot(SplayNode currentNode)
         {
             while (currentNode.Parent != null)
             { 
@@ -78,54 +89,6 @@ namespace Otus.SlayAndRandomSearchTrees.Logic
                     }
                 }
             }
-        }
-
-        private void DoSmallLeftRotation(Node rootToRotate)
-        {
-            var rightChildOfRotatedRoot = rootToRotate.RightChild;
-            rootToRotate.RightChild = rightChildOfRotatedRoot.LeftChild;
-
-            if (rightChildOfRotatedRoot.LeftChild != null)
-            {
-                rightChildOfRotatedRoot.LeftChild.Parent = rootToRotate;
-            }
-
-            rightChildOfRotatedRoot.Parent = rootToRotate.Parent;
-            if (rootToRotate.Parent == null)
-            {
-                Root = rightChildOfRotatedRoot;
-            }
-            else
-            {
-                ReplaceNodeInParent(rootToRotate, rightChildOfRotatedRoot);
-            }
-
-            rightChildOfRotatedRoot.LeftChild = rootToRotate;
-            rootToRotate.Parent = rightChildOfRotatedRoot;
-        }
-
-        private void DoSmallRightRotation(Node rootToRotate)
-        {
-            var leftChildOfRotatedRoot = rootToRotate.LeftChild;
-            rootToRotate.LeftChild = leftChildOfRotatedRoot.RightChild;
-
-            if (leftChildOfRotatedRoot.RightChild != null)
-            {
-                leftChildOfRotatedRoot.RightChild.Parent = rootToRotate;
-            }
-
-            leftChildOfRotatedRoot.Parent = rootToRotate.Parent;
-            if (rootToRotate.Parent == null)
-            {
-                Root = leftChildOfRotatedRoot;
-            }
-            else
-            {
-                ReplaceNodeInParent(rootToRotate, leftChildOfRotatedRoot);
-            }
-
-            leftChildOfRotatedRoot.RightChild = rootToRotate;
-            rootToRotate.Parent = leftChildOfRotatedRoot;
         }
 
         #endregion
