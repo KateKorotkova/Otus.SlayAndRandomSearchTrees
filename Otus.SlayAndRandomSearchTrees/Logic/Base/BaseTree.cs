@@ -43,8 +43,7 @@
                     currentRoot.LeftChild = new Node
                     {
                         Value = value,
-                        Parent =  currentRoot,
-                        NodeSide = NodeSide.Left
+                        Parent =  currentRoot
                     };
 
                     return currentRoot.LeftChild;
@@ -59,8 +58,7 @@
                     currentRoot.RightChild = new Node
                     {
                         Value = value,
-                        Parent = currentRoot,
-                        NodeSide = NodeSide.Right
+                        Parent = currentRoot
                     };
 
                     return currentRoot.RightChild;

@@ -16,6 +16,7 @@ namespace Tests
 
             var result = tree.GetNode(40);
 
+            Assert.NotNull(result);
             Assert.That(tree.Root.Value, Is.EqualTo(40));
             Assert.That(tree.Root.LeftChild.Value, Is.EqualTo(10));
             Assert.That(tree.Root.LeftChild.RightChild.Value, Is.EqualTo(30));
